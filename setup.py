@@ -45,5 +45,5 @@ setup(
     packages=find_packages(),
     platforms="OS Independent",
     package_data=PKGDATA,
-    install_requires=['scipy','numpy','matplotlib','scikit-image','pywavelets','modopt','pynufft'],
+    install_requires=['scipy','numpy','matplotlib','scikit-image','pywavelets','modopt','pynufft','tifffile'],
 )

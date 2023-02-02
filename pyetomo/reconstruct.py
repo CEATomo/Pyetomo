@@ -73,7 +73,7 @@ def sparse_rec_fista(gradient_op, linear_op, prox_op, cost_op,
     start = time.clock()
 
     # Define the initial primal and dual solutions
-    x_init = np.zeros(gradient_op.fourier_op.shape, dtype=np.complex)
+    x_init = np.zeros(gradient_op.fourier_op.shape, dtype=complex)
     alpha = linear_op.op(x_init)
     alpha[...] = 0.0
 
@@ -205,7 +205,7 @@ def sparse_rec_condatvu(gradient_op, linear_op, prox_dual_op, cost_op,
             "Unrecognized std estimation method '{}'.".format(std_est_method))
 
     # Define the initial primal and dual solutions
-    x_init = np.zeros(gradient_op.fourier_op.shape, dtype=np.complex)
+    x_init = np.zeros(gradient_op.fourier_op.shape, dtype=complex)
     weights = linear_op.op(x_init)
 
     # Define the weights used during the thresholding in the dual domain,
@@ -241,7 +241,7 @@ def sparse_rec_condatvu(gradient_op, linear_op, prox_dual_op, cost_op,
     convergence_test = (1.0 / tau - sigma * norm ** 2 >= lipschitz_cst / 2.0)
 
     # Define initial primal and dual solutions
-    primal = np.zeros(gradient_op.fourier_op.shape, dtype=np.complex)
+    primal = np.zeros(gradient_op.fourier_op.shape, dtype=complex)
     dual = linear_op.op(primal)
     dual[...] = 0.0
 

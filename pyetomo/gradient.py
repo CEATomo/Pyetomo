@@ -25,7 +25,7 @@ class GradAnalysis(GradBasic, PowerMethod):
         GradBasic.__init__(self, data, fourier_op.op, fourier_op.adj_op)
         self.fourier_op = fourier_op
         PowerMethod.__init__(self, self.trans_op_op, self.fourier_op.shape,
-                             data_type=np.complex, auto_run=False)
+                             data_type=complex, auto_run=False)
         self.get_spec_rad(extra_factor=1.1)
 
 
@@ -39,9 +39,9 @@ class GradSynthesis(GradBasic, PowerMethod):
         GradBasic.__init__(self, data, self._op_method, self._trans_op_method)
         self.fourier_op = fourier_op
         self.linear_op = linear_op
-        coef = linear_op.op(np.zeros(fourier_op.shape).astype(np.complex))
+        coef = linear_op.op(np.zeros(fourier_op.shape).astype(complex))
         PowerMethod.__init__(self, self.trans_op_op, coef.shape,
-                             data_type=np.complex, auto_run=False)
+                             data_type=complex, auto_run=False)
         self.get_spec_rad(extra_factor=1.1)
 
     def _op_method(self, data, *args, **kwargs):
